@@ -47,14 +47,19 @@ QString  stroka_vsia;
              QString stderr = process.readAllStandardError();
         
 
- //std::cout << stderr.toStdString().c_str()  << std::endl; 
+ std::cout << stderr.toStdString().c_str()  << std::endl; 
 
  if (stderr=="0 (0)")   
              {
 // std::cout << "!!!!!!"<< std::endl ; // TODO: стереть файл второй
- file_stiort=QFile::remove(list_of_fonts[x].c_str());
+QString name_of_file="/home/viktor/my_projects_qt_2/kartinki_iz_shriftov/papka-fonts-sort/obrez_snizu/polniy_obrez/black-white/"
++QString::fromStdString(list_of_fonts[x]); // QString::fromStdString(str);
+ file_stiort=QFile::remove(name_of_file);
             if (file_stiort ==true)
             std::cout << "файл "+list_of_fonts[x]+" стёрт"<< std::endl ; // TODO: стереть файл второй;
+            else 
+            std::cout << "файл "+list_of_fonts[x]+" не стёрт"<< std::endl ;
+            
              }
           }
    /// 
